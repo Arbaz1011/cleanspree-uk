@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       });
 
       await transporter.sendMail({
-        from: process.env.SMTP_FROM || `"Clean Spree UK Website" <${process.env.SMTP_USER}>`,
+        from: process.env.SMTP_FROM || `"Clean Spree Website" <${process.env.SMTP_USER}>`,
         to: toEmail,
         replyTo: email,
         subject: `Contact form: ${name}`,

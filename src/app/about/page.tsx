@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Clean Spree UK — our mission, values, and commitment to professional cleaning services across the United Kingdom.",
+    "Learn about Clean Spree — our mission, values, and commitment to professional cleaning services across the UK.",
 };
 
 const VALUES = [
@@ -80,7 +80,7 @@ export default function AboutPage() {
                 key={value.title}
                 className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <h3 className="text-lg font-semibold text-teal-700">{value.title}</h3>
+                <h3 className="text-lg font-semibold text-cyan-700">{value.title}</h3>
                 <p className="mt-2 text-slate-600">{value.description}</p>
               </div>
             ))}

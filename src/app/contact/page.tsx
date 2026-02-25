@@ -5,13 +5,13 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Clean Spree UK for a free quote. Contact form, phone, email, and WhatsApp available.",
+    "Get in touch with Clean Spree for a free quote. Contact form, phone, email, and WhatsApp available.",
 };
 
 export default function ContactPage() {
   return (
     <div>
-      <section className="bg-slate-50 px-4 py-16 sm:py-24">
+      <section className="bg-slate-100/60 px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl">
             Contact Us
@@ -34,15 +34,16 @@ export default function ContactPage() {
               <ul className="mt-8 space-y-4">
                 <li>
                   <span className="font-medium text-slate-900">Email:</span>{" "}
-                  <a href={`mailto:${SITE_CONFIG.email}`} className="text-teal-600 hover:underline">
+                  <a href={`mailto:${SITE_CONFIG.email}`} className="text-cyan-600 hover:underline">
                     {SITE_CONFIG.email}
                   </a>
                 </li>
                 <li>
                   <span className="font-medium text-slate-900">Phone:</span>{" "}
-                  <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`} className="text-teal-600 hover:underline">
+                  <a href={`tel:${SITE_CONFIG.phoneTel}`} className="text-cyan-600 hover:underline">
                     {SITE_CONFIG.phone}
                   </a>
+                  <span className="block text-sm text-slate-500">From overseas: +353 1 4007531</span>
                 </li>
                 <li>
                   <span className="font-medium text-slate-900">WhatsApp:</span>{" "}
@@ -50,7 +51,7 @@ export default function ContactPage() {
                     href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-teal-600 hover:underline"
+                    className="text-cyan-600 hover:underline"
                   >
                     Chat with us
                   </a>

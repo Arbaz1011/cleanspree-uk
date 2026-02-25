@@ -47,7 +47,7 @@ export default function ContactForm() {
           id="name"
           type="text"
           {...register("name", { required: "Name is required" })}
-          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400"
           autoComplete="name"
         />
         {errors.name && (
@@ -71,7 +71,7 @@ export default function ContactForm() {
               message: "Please enter a valid email address",
             },
           })}
-          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400"
           autoComplete="email"
         />
         {errors.email && (
@@ -89,7 +89,7 @@ export default function ContactForm() {
           id="phone"
           type="tel"
           {...register("phone")}
-          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400"
           autoComplete="tel"
         />
       </div>
@@ -102,7 +102,7 @@ export default function ContactForm() {
           id="message"
           rows={4}
           {...register("message", { required: "Message is required" })}
-          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-400"
         />
         {errors.message && (
           <p className="mt-1 text-sm text-red-600" role="alert">
@@ -125,7 +125,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-full bg-teal-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-700 disabled:opacity-70 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+        className="w-full rounded-full bg-cyan-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-cyan-700 disabled:opacity-70 focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </button>

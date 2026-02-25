@@ -1,71 +1,109 @@
 import Link from "next/link";
 import { SERVICES } from "@/lib/constants";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import type { Metadata } from "next";
+
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Our Services",
   description:
-    "Hotel cleaning, office cleaning, house cleaning, end of tenancy, deep kitchen cleaning, new build and one-off cleaning across the UK.",
+    "Professional cleaning services: hotel, office, house, end of tenancy, deep kitchen, new build and one-off cleaning across the UK.",
 };
 
 export default function ServicesPage() {
   return (
     <div>
-      <section className="bg-slate-50 px-4 py-16 sm:py-24">
+      {/* Hero – cleanspree.ie style: simple, professional */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl">
-            Our Professional Cleaning Services
-          </h1>
-          <p className="mt-4 text-lg text-slate-600">
-            From commercial to residential, we offer a full range of cleaning solutions across the UK.
-          </p>
+          <AnimateOnScroll>
+            <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl">
+              Professional Cleaning Services
+            </h1>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={1}>
+            <p className="mt-4 text-lg text-slate-600">
+              We offer a comprehensive range of cleaning services tailored to meet your specific needs. Each service is delivered with the highest standards of professionalism and attention to detail.
+            </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
-      <section className="py-16 sm:py-24" aria-label="Service list">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+      {/* Service list – cleanspree.ie: title, description, bullets, Book This Service */}
+      <section className="py-12 sm:py-16" aria-label="Service list">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="space-y-12">
             {SERVICES.map((service, index) => (
-              <article
-                key={service.id}
-                id={service.id}
-                className={`scroll-mt-24 flex flex-col gap-8 lg:flex-row lg:items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-              >
-                <div className="flex-1">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-100 text-teal-600">
-                    <span className="text-2xl font-bold">{service.title.charAt(0)}</span>
+              <AnimateOnScroll key={service.id} delay={(index % 2) as 0 | 1}>
+                <article
+                  id={service.id}
+                  className="scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+                >
+                  <div className="grid gap-0 sm:grid-cols-[minmax(0,280px)_1fr]">
+                    <div className="relative h-48 w-full overflow-hidden bg-slate-200 sm:h-auto sm:min-h-[220px]">
+                      <img
+                        src={service.image}
+                        alt=""
+                        className="h-full w-full object-cover"
+                        width={400}
+                        height={280}
+                      />
+                    </div>
+                    <div className="p-8 sm:p-10">
+                      <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+                        {service.title}
+                      </h2>
+                      <p className="mt-4 text-slate-600">
+                        {service.description}
+                      </p>
+                      <ul className="mt-6 space-y-2">
+                        {service.features.map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-slate-600">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" aria-hidden />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        href="/contact"
+                        className="mt-8 inline-flex rounded-full bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-cyan-700 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      >
+                        Book This Service
+                      </Link>
+                    </div>
                   </div>
-                  <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">
-                    {service.title}
-                  </h2>
-                  <p className="mt-4 text-slate-600">{service.description}</p>
-                </div>
-                <div className="flex-1">
-                  <div className="aspect-video overflow-hidden rounded-2xl bg-slate-200">
-                    <img
-                      src={`https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80`}
-                      alt=""
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                </div>
-              </article>
+                </article>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-teal-700 px-4 py-16 text-center text-white">
-        <h2 className="text-2xl font-bold">Need a custom solution?</h2>
-        <p className="mt-2 text-teal-100">
-          Contact us for a free, no-obligation quote tailored to your needs.
-        </p>
-        <Link
-          href="/contact"
-          className="mt-6 inline-block rounded-full bg-white px-8 py-3 font-semibold text-teal-700 hover:bg-teal-50"
-        >
-          Get Free Quote
-        </Link>
+      {/* CTA – cleanspree.ie style: cyan strip */}
+      <section className="border-t border-slate-200 bg-cyan-700 px-4 py-16 sm:py-20" aria-labelledby="services-cta-heading">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 id="services-cta-heading" className="text-2xl font-bold text-white sm:text-3xl">
+            Ready to experience the difference?
+          </h2>
+          <p className="mt-3 text-cyan-100">
+            Get in touch with us today for a free, no-obligation quote. Let us show you why we&apos;re a trusted cleaning service provider across the UK.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex rounded-full bg-white px-8 py-3 font-semibold text-cyan-700 transition-colors hover:bg-cyan-50 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-700"
+            >
+              Get Free Quote
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center rounded-full border-2 border-white/70 px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-700"
+            >
+              Learn more →
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );
