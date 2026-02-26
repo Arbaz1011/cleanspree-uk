@@ -5,11 +5,11 @@ export const SITE_CONFIG = {
   logo: "/api/logo",
   tagline: "Professional Cleaning Services Across the UK",
   description: "Reliable, high-quality cleaning services for hotels, offices, homes, and more across the United Kingdom.",
-  /** Dublin landline: 01 4007531 (from overseas: +353 1 4007531) */
-  phone: "01 4007531",
-  phoneTel: "+35314007531", // E.164 for tel: and WhatsApp links
+  /** UK mobile */
+  phone: "07778 737256",
+  phoneTel: "+447778737256", // E.164 for tel: and WhatsApp links
   email: "info@cleanspree.co.uk",
-  whatsapp: "35314007531", // Ireland: no + for WhatsApp link
+  whatsapp: "447778737256", // UK: no + for WhatsApp link
   address: "London, UK",
   social: {
     instagram: "https://www.instagram.com/cleanspree.ie",
@@ -25,8 +25,6 @@ const SERVICE_IMAGES = {
   "house-cleaning": "/images/services/house-cleaning.jpg.jpg",
   "new-build": "/images/services/new-build.jpg.jpg",
   "end-of-tenancy": "/images/services/end-of-tenancy.jpg.jpg",
-  // No one-off image in folder; using house-cleaning as fallback (add one-off.jpg when you have one)
-  "one-off": "/images/services/house-cleaning.jpg.jpg",
   "security-services": "/images/services/security-services.jpg.jpg",
 } as const;
 
@@ -39,6 +37,14 @@ export const SERVICES = [
     description: "Comprehensive cleaning solutions for hotels, ensuring immaculate spaces for your guests. Our services include room turnover, common area maintenance, and deep cleaning of facilities.",
     features: ["Conference rooms", "Lobby and reception areas", "Kitchen and restaurant cleaning", "Common area maintenance", "Room turnover service"],
     image: SERVICE_IMAGES["hotel-cleaning"],
+  },
+  {
+    id: "security-services",
+    title: "Security Services",
+    shortDesc: "Professional security and site protection.",
+    description: "Reliable security services to protect your premises, staff, and assets. We provide trained personnel and tailored solutions for commercial and residential clients.",
+    features: ["Site security and patrols", "Access control", "CCTV monitoring support", "Event and out-of-hours cover", "Key holding and alarm response"],
+    image: SERVICE_IMAGES["security-services"],
   },
   {
     id: "deep-kitchen",
@@ -79,22 +85,6 @@ export const SERVICES = [
     description: "Detailed cleaning services to ensure property handover in perfect condition. Get your deposit back with our thorough cleaning service.",
     features: ["Inspection checklist compliance", "Window and blind cleaning", "Oven and appliance cleaning", "Carpet deep cleaning", "Complete property cleaning"],
     image: SERVICE_IMAGES["end-of-tenancy"],
-  },
-  {
-    id: "one-off",
-    title: "One-Off Cleaning",
-    shortDesc: "Single deep cleans when you need them.",
-    description: "Flexible one-time cleaning services for special occasions or specific needs. Perfect for spring cleaning or special events.",
-    features: ["Holiday rental preparation", "Moving in/out cleaning", "Spring cleaning", "Special event preparation", "Deep cleaning service"],
-    image: SERVICE_IMAGES["one-off"],
-  },
-  {
-    id: "security-services",
-    title: "Security Services",
-    shortDesc: "Professional security and site protection.",
-    description: "Reliable security services to protect your premises, staff, and assets. We provide trained personnel and tailored solutions for commercial and residential clients.",
-    features: ["Site security and patrols", "Access control", "CCTV monitoring support", "Event and out-of-hours cover", "Key holding and alarm response"],
-    image: SERVICE_IMAGES["security-services"],
   },
 ] as const;
 

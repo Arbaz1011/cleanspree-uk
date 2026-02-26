@@ -43,7 +43,7 @@ export default function ContactPage() {
                   <a href={`tel:${SITE_CONFIG.phoneTel}`} className="text-cyan-600 hover:underline">
                     {SITE_CONFIG.phone}
                   </a>
-                  <span className="block text-sm text-slate-500">From overseas: +353 1 4007531</span>
+                  <span className="block text-sm text-slate-500">From overseas: +44 7778 737256</span>
                 </li>
                 <li>
                   <span className="font-medium text-slate-900">WhatsApp:</span>{" "}
